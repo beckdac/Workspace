@@ -89,8 +89,9 @@ public class GenerateBaracade : MonoBehaviour
                 // rotate the object about an axis at that center of rotation
                 Vector3 rotationAxis = Vector3.zero;
                 rotationAxis[minorAxis] = 1f;
-                Debug.Log("Rotating around minorAxis (" + minorAxis + ") -90 degrees");
-                newBaracade.transform.RotateAround(center, rotationAxis, -90f);
+                Debug.Log("Rotating around minorAxis (" + minorAxis + ") 90 degrees");
+                newBaracade.transform.RotateAround(center, rotationAxis, 90f);
+                newBaracade.transform.localPosition -= new Vector3(baracadeSize.z * 2.5f, 0f, -startEndGap * 2.5f);
             }
         }
     }
