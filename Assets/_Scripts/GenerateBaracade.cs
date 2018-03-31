@@ -78,16 +78,19 @@ public class GenerateBaracade : MonoBehaviour
                 newBaracade.transform.SetParent(baracadeParent.transform);
                 Vector3 position = Vector3.zero;
                 position[axis] = iOffset;
-                position[offAxis] = (float)j * floorSize[offAxis] / 2f - (float)j * baracadeSize.z;
+                position[offAxis] = (float)j * (floorSize[offAxis] / 2f - 1.5f * baracadeSize.z + (j == 1 ? baracadeSize.z: 0f));
                 newBaracade.transform.localPosition = position;
                 Debug.Log("Placed baracade " + (i + 1) + " at position " + newBaracade.transform.localPosition + "relative to " + floor);
+                if (axis == 0)
+                    continue;
                 // The baracade prefab is built along the x axis, if we are doing any other axis we need to rotate the baracade
                 // First, find the center of the object
                 Vector3 center = newBaracade.GetComponent<MeshRenderer>().bounds.center;
                 // rotate the object about an axis at that center of rotation
                 Vector3 rotationAxis = Vector3.zero;
                 rotationAxis[minorAxis] = 1f;
-                newBaracade.transform.RotateAround(center, rotationAxis, 90f);
+                Debug.Log("Rotating around minorAxis (" + minorAxis + ") -90 degrees");
+                newBaracade.transform.RotateAround(center, rotationAxis, -90f);
             }
         }
     }
