@@ -338,7 +338,7 @@ MonoBehaviour:
   floor: {fileID: 308069897}
   baracadePrefab: {fileID: 1028483429733238, guid: 7733e903f7204f14caeee6f97e5f3d9d,
     type: 2}
-  baracadeSpacing: 0.5
+  baracadeSpacing: 1
 --- !u!1 &1207266385
 GameObject:
   m_ObjectHideFlags: 0
